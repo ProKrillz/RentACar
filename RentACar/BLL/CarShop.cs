@@ -5,16 +5,20 @@ namespace RentACar.BLL
     public class CarShop
     {
         public readonly ICustomer ici;
-        private string _adminName;
-        private string _adminPassword;
+        public readonly ICar icari;
+        public readonly IWriteLine iwi;
+        public readonly IEmployer iei;
         readonly string _companyName;
+        public bool runTime = true;
 
-        public CarShop(string companyname, string adminName, string adminPassword, ICustomer ci)
+        public CarShop(string companyname, ICustomer? ci, ICar? cai, IWriteLine? wi, IEmployer ei)
         {
             _companyName = companyname;
-            _adminName = adminName;
-            _adminPassword = adminPassword;
             ici = ci;
+            icari = cai;
+            iwi = wi;
+            iei = ei;
         }
+        public string GetCompanyName() => _companyName;
     }
 }

@@ -7,6 +7,7 @@ public class RepoCostumer : ICustomer
 {
     int _counter;
     private List<Customer> _customers;
+    
     public RepoCostumer()
     {
         _customers = new List<Customer>();
