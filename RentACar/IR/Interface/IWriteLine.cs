@@ -1,4 +1,5 @@
 ﻿using RentACar.Enums;
+using RentACar.Model;
 
 namespace RentACar.IR.Interface;
 public interface IWriteLine
@@ -9,7 +10,7 @@ public interface IWriteLine
     public void WarningMsg(string txt);
     public void Menu(string name);
     public bool Login(string admin, string password);
-    public CarType PickACarMenu();
+    public CarType PickACarTypeMenu();
     public Color PickAColorMenu();
     public CarBrand PickACarBrandMenu();
     public PersonType PickPerson(string txt);

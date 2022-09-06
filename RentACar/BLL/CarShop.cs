@@ -4,20 +4,17 @@ namespace RentACar.BLL
 {
     public class CarShop
     {
-        public readonly ICustomer ici;
-        public readonly ICar icari;
+        public readonly ICar ici;
         public readonly IWriteLine iwi;
-        public readonly IEmployer iei;
         readonly string _companyName;
         public bool runTime = true;
+        public double Balance;
 
-        public CarShop(string companyname, ICustomer? ci, ICar? cai, IWriteLine? wi, IEmployer ei)
+        public CarShop(string companyname, ICar cai, IWriteLine wi)
         {
             _companyName = companyname;
-            ici = ci;
-            icari = cai;
+            ici = cai;
             iwi = wi;
-            iei = ei;
         }
         public string GetCompanyName() => _companyName;
     }

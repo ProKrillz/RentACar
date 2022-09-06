@@ -1,5 +1,6 @@
 ﻿using RentACar.Enums;
 using RentACar.IR.Interface;
+using RentACar.Model;
 
 namespace RentACar.IR.Repository
 {
@@ -74,7 +75,7 @@ namespace RentACar.IR.Repository
         {
             Console.Clear();
             Console.WriteLine(name);
-            Console.WriteLine("\n1: Add car\n2: Show all cars\n3: Update car\n4: Delete car\n5: Create user\n6: Show all customer\n7: Update Customer\n8: Delete User\n");
+            Console.WriteLine("\n1: Add car\n2: Show all cars\n3: Update car\n4: Delete car\n5: Create user\n6: Show persons\n7: Update Customer\n8: Delete User\n9: Reservation\n");
         }
         public bool Login(string username, string password)
         {
@@ -88,7 +89,7 @@ namespace RentACar.IR.Repository
             Console.Clear();
             return false;
         }
-        public CarType PickACarMenu()
+        public CarType PickACarTypeMenu()
         {
             while (true)
             {
@@ -155,6 +156,22 @@ namespace RentACar.IR.Repository
         {
             Console.Clear();
             Console.WriteLine("Update\n\n1: Firstname\n2: Lastname\n3: Mail\n4: Phone\n5: Exit\n");
+        }
+        public void PrintReservation(List<Reservation> res, List<Car> cars, List<Employer> employers, List<Customer> customer)
+        {
+            Console.Clear();
+            foreach (Reservation item in res)
+            {
+                Console.WriteLine($"Id: {item.Id}\nRent day: {item.RentDay}\nReturn date: {item.ExpectedDelviredDay}\nPrice: {item.Balance}\n");
+                Car? FoundCar = cars.Find(x => x.Id == item.CarId);
+                Customer? FoundCustomer = customer.Find(x => x.Id == item.CustomerId);
+                Employer? FoundEmployer = employers.Find(x => x.Id == item.EmployerId);
+                Console.WriteLine($"Car\nBrand: {FoundCar.Brand}\nModel: {FoundCar.Name}\nColor: {FoundCar.CarColor}\nPlate: {FoundCar.Plate}\nKm: {FoundCar.KmDrived}\nPrice: {FoundCar.Price}\n");
+                Console.WriteLine($"Customer\nName: {FoundCustomer.FirstName} {FoundCustomer.LastName}\nPhone: {FoundCustomer.Phone}\nMail: {FoundCustomer.Mail}\n");
+                Console.WriteLine($"Employer\nName: {FoundEmployer.FirstName} {FoundEmployer.LastName}");
+                Console.WriteLine("____________________________");
+            }
+            Console.ReadKey();
         }
     }
 }

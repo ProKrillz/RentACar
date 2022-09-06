@@ -25,6 +25,7 @@ public class Convertible : Car
         CarColor = color;
         Brand = brand;
         Price = 250;
+        RentCustomerId = 0;
     }
 }
 public class Sport : Car
@@ -39,6 +40,7 @@ public class Sport : Car
         Brand = brand;
         Seat = 2;
         Price = 350;
+        RentCustomerId = 0;
     }
 }
 public class Station : Car
@@ -52,6 +54,7 @@ public class Station : Car
         CarColor = color;
         Brand = brand;
         Price = 300;
+        RentCustomerId = 0;
     }
 }
 
